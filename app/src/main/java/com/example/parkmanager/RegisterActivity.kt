@@ -99,7 +99,15 @@ fun RegisterScreen(onRegistrationSuccess: () -> Unit) {
         Spacer(modifier = Modifier.height(16.dp))
 
         Button(
-            onClick = { performRegistration(name, surname, email, password, onRegistrationSuccess) },
+            onClick = {
+                performRegistration(
+                    name,
+                    surname,
+                    email,
+                    password,
+                    onRegistrationSuccess
+                )
+            },
             modifier = Modifier.fillMaxWidth()
         ) {
             Text("Register")
@@ -113,6 +121,12 @@ fun RegisterScreenPreview() {
     RegisterScreen {}
 }
 
-fun performRegistration(name : String, surname : String, email: String, password: String, onRegistrationSuccess: () -> Unit) {
+fun performRegistration(
+    name: String,
+    surname: String,
+    email: String,
+    password: String,
+    onRegistrationSuccess: () -> Unit
+) {
     TODO("Not yet implemented")
 }

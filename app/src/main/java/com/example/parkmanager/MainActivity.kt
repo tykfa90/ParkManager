@@ -5,10 +5,14 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowBack
+import androidx.compose.material3.Button
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
@@ -74,7 +78,40 @@ fun MainMenu(
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
-        Text("Placeholder Main Menu Screen", fontSize = 20.sp, fontWeight = FontWeight.Bold)
+        Text("Placeholder App Logo", fontSize = 20.sp, fontWeight = FontWeight.Bold)
+
+        Spacer(modifier = Modifier.height(16.dp))
+
+        Button(
+            onClick = {
+                TODO("Implement navigation.")
+            },
+            modifier = Modifier.fillMaxWidth()
+        ) {
+            Text("New Reservation")
+        }
+
+        Spacer(modifier = Modifier.height(8.dp))
+
+        Button(
+            onClick = {
+                TODO("Implement navigation.")
+            },
+            modifier = Modifier.fillMaxWidth()
+        ) {
+            Text("Current Reservations")
+        }
+
+        Spacer(modifier = Modifier.height(8.dp))
+
+        Button(
+            onClick = {
+                TODO("Implement navigation.")
+            },
+            modifier = Modifier.fillMaxWidth()
+        ) {
+            Text("Settings")
+        }
     }
 }
 

@@ -52,6 +52,7 @@ fun LoginScreen(onLoginSuccess: () -> Unit) {
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
         Text("Login Screen", fontSize = 20.sp, fontWeight = FontWeight.Bold)
+
         Spacer(modifier = Modifier.height(16.dp))
 
         OutlinedTextField(
@@ -72,7 +73,13 @@ fun LoginScreen(onLoginSuccess: () -> Unit) {
         Spacer(modifier = Modifier.height(16.dp))
 
         Button(
-            onClick = { performLogin(email, password, onLoginSuccess) },
+            onClick = {
+                performLogin(
+                    email,
+                    password,
+                    onLoginSuccess
+                )
+            },
             modifier = Modifier.fillMaxWidth()
         ) {
             Text("Login")
