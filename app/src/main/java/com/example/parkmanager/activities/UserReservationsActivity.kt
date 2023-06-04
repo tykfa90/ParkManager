@@ -1,4 +1,4 @@
-package com.example.parkmanager
+package com.example.parkmanager.activities
 
 import android.os.Bundle
 import android.os.PersistableBundle
@@ -19,15 +19,15 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 
-class NewReservationActivity : ComponentActivity() {
+class UserReservationsActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?, persistentState: PersistableBundle?) {
         super.onCreate(savedInstanceState, persistentState)
-        setContent{ NewReservation() }
+        setContent{ UserReservationsList() }
     }
 }
 
 @Composable
-fun NewReservation() {
+fun UserReservationsList() {
     Column(
         modifier = Modifier
             .fillMaxSize()
@@ -35,7 +35,7 @@ fun NewReservation() {
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
-        Text("This activity will handle the process of making a new reservation.", fontSize = 20.sp, fontWeight = FontWeight.Bold)
+        Text("Here the user will see a list of their active reservations.", fontSize = 20.sp, fontWeight = FontWeight.Bold)
 
         Spacer(modifier = Modifier.height(16.dp))
     }
@@ -43,6 +43,6 @@ fun NewReservation() {
 
 @Preview(showBackground = true)
 @Composable
-fun NewReservationPreview() {
-    NewReservation()
+fun UserReservationListPreview() {
+    UserReservationsList()
 }

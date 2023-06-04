@@ -1,4 +1,4 @@
-package com.example.parkmanager
+package com.example.parkmanager.activities
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
@@ -29,6 +29,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
+import com.example.parkmanager.R
 import com.google.firebase.FirebaseApp
 
 class MainActivity : ComponentActivity() {

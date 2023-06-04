@@ -1,4 +1,4 @@
-package com.example.parkmanager
+package com.example.parkmanager.activities
 
 import android.os.Bundle
 import android.os.PersistableBundle
@@ -19,15 +19,18 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 
-class UserReservationsActivity : ComponentActivity() {
+class AdminScreenActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?, persistentState: PersistableBundle?) {
         super.onCreate(savedInstanceState, persistentState)
-        setContent{ UserReservationsList() }
+        setContent { AdminAccessScreen() }
     }
 }
 
+/**
+ * Administrator access screen.
+ */
 @Composable
-fun UserReservationsList() {
+fun AdminAccessScreen() {
     Column(
         modifier = Modifier
             .fillMaxSize()
@@ -35,7 +38,7 @@ fun UserReservationsList() {
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
-        Text("Here the user will see a list of their active reservations.", fontSize = 20.sp, fontWeight = FontWeight.Bold)
+        Text("Admin Panel", fontSize = 20.sp, fontWeight = FontWeight.Bold)
 
         Spacer(modifier = Modifier.height(16.dp))
     }
@@ -43,6 +46,6 @@ fun UserReservationsList() {
 
 @Preview(showBackground = true)
 @Composable
-fun UserReservationListPreview() {
-    UserReservationsList()
+fun AdminAccessScreenPreview() {
+    AdminAccessScreen()
 }

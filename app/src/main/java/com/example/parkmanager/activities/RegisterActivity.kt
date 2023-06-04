@@ -1,4 +1,4 @@
-package com.example.parkmanager
+package com.example.parkmanager.activities
 
 import android.os.Bundle
 import android.os.PersistableBundle
@@ -28,19 +28,21 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 
-class LoginActivity : ComponentActivity() {
+class RegisterActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?, persistentState: PersistableBundle?) {
         super.onCreate(savedInstanceState, persistentState)
-        setContent { LoginScreen {} }
+        setContent { RegisterScreen {} }
     }
 }
 
 /**
- * User login screen.
+ * User registration screen.
  */
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun LoginScreen(onLoginSuccess: () -> Unit) {
+fun RegisterScreen(onRegistrationSuccess: () -> Unit) {
+    var name by remember { mutableStateOf("") }
+    var surname by remember { mutableStateOf("") }
     var email by remember { mutableStateOf("") }
     var password by remember { mutableStateOf("") }
 
@@ -51,9 +53,24 @@ fun LoginScreen(onLoginSuccess: () -> Unit) {
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
-        Text("Login Screen", fontSize = 20.sp, fontWeight = FontWeight.Bold)
-
+        Text("Registration Screen", fontSize = 20.sp, fontWeight = FontWeight.Bold)
         Spacer(modifier = Modifier.height(16.dp))
+
+        OutlinedTextField(
+            value = name,
+            onValueChange = { name = it },
+            label = { Text("Name") }
+        )
+
+        Spacer(modifier = Modifier.height(8.dp))
+
+        OutlinedTextField(
+            value = surname,
+            onValueChange = { surname = it },
+            label = { Text("Surname") }
+        )
+
+        Spacer(modifier = Modifier.height(8.dp))
 
         OutlinedTextField(
             value = email,
@@ -70,29 +87,46 @@ fun LoginScreen(onLoginSuccess: () -> Unit) {
             visualTransformation = PasswordVisualTransformation()
         )
 
+        Spacer(modifier = Modifier.height(8.dp))
+
+        OutlinedTextField(
+            value = password,
+            onValueChange = { password = it },
+            label = { Text("Confirm Password") },
+            visualTransformation = PasswordVisualTransformation()
+        )
+
         Spacer(modifier = Modifier.height(16.dp))
 
         Button(
             onClick = {
-                performLogin(
+                performRegistration(
+                    name,
+                    surname,
                     email,
                     password,
-                    onLoginSuccess
+                    onRegistrationSuccess
                 )
             },
             modifier = Modifier.fillMaxWidth()
         ) {
-            Text("Login")
+            Text("Register")
         }
     }
 }
 
 @Preview(showBackground = true)
 @Composable
-fun LoginScreenPreview() {
-    LoginScreen {}
+fun RegisterScreenPreview() {
+    RegisterScreen {}
 }
 
-fun performLogin(email: String, password: String, onLoginSuccess: () -> Unit) {
+fun performRegistration(
+    name: String,
+    surname: String,
+    email: String,
+    password: String,
+    onRegistrationSuccess: () -> Unit
+) {
     TODO("Not yet implemented")
 }
