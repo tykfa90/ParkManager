@@ -41,6 +41,8 @@ class RegisterActivity : ComponentActivity() {
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun RegisterScreen(onRegistrationSuccess: () -> Unit) {
+    var name by remember { mutableStateOf("") }
+    var surname by remember { mutableStateOf("") }
     var email by remember { mutableStateOf("") }
     var password by remember { mutableStateOf("") }
 
@@ -53,6 +55,22 @@ fun RegisterScreen(onRegistrationSuccess: () -> Unit) {
     ) {
         Text("Registration Screen", fontSize = 20.sp, fontWeight = FontWeight.Bold)
         Spacer(modifier = Modifier.height(16.dp))
+
+        OutlinedTextField(
+            value = name,
+            onValueChange = { name = it },
+            label = { Text("Name") }
+        )
+
+        Spacer(modifier = Modifier.height(8.dp))
+
+        OutlinedTextField(
+            value = surname,
+            onValueChange = { surname = it },
+            label = { Text("Surname") }
+        )
+
+        Spacer(modifier = Modifier.height(8.dp))
 
         OutlinedTextField(
             value = email,
@@ -81,7 +99,7 @@ fun RegisterScreen(onRegistrationSuccess: () -> Unit) {
         Spacer(modifier = Modifier.height(16.dp))
 
         Button(
-            onClick = { performRegistration(email, password, onRegistrationSuccess) },
+            onClick = { performRegistration(name, surname, email, password, onRegistrationSuccess) },
             modifier = Modifier.fillMaxWidth()
         ) {
             Text("Register")
@@ -95,6 +113,6 @@ fun RegisterScreenPreview() {
     RegisterScreen {}
 }
 
-fun performRegistration(email: String, password: String, onRegistrationSuccess: () -> Unit) {
+fun performRegistration(name : String, surname : String, email: String, password: String, onRegistrationSuccess: () -> Unit) {
     TODO("Not yet implemented")
 }
